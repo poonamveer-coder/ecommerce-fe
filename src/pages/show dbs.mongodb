@@ -1,0 +1,57 @@
+show dbs
+use test
+db.posts.insertOne({
+  title: '1. Welcome to MERN'
+})
+
+db.posts.insertOne({
+  title: '2. Welcome to MERN',
+  body: 'This is body'
+
+})
+
+db.posts.insertMany(
+  [
+    {
+  title: '5. Welcome to MERN'
+},
+{
+  title: '6. Welcome to MERN',
+  body: 'This is body'
+
+}
+
+  ]
+)
+
+db.posts.find()
+
+db.posts.find({
+  "title": "4. Welcome to MERN",
+})
+
+db.posts.findOne({_id: ObjectId("63403d581cff0cfd0b7251e3")})
+
+db.posts.find().sort({title: 1})
+db.posts.find().sort({title: -1})
+
+db.posts.find().limit(2)
+db.posts.find().limit(2).skip(4)
+
+// aggregate function
+
+db.posts.updateOne({
+  _id: ObjectId("634040db55e959eb43877cae")
+}, {
+  $set : {
+    "body": "Body is updated"
+  }
+})
+
+db.posts.updateOne({
+  "title": "6. Welcome to MERN"
+}, {
+  $set : {
+    "body": "Body is updated v2"
+  }
+})

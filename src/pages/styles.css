@@ -1,0 +1,10 @@
+.container {
+    border: 1px solid blue;
+}
+.menuLinks {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+}
+.mainContainer {
+}

@@ -1,0 +1,17 @@
+.productdetails {
+  border-radius: 2px;
+  border: 2px solid green;
+  justify-content: space-evenly;
+}
+.productimg {
+  border: 4px solid;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  width: 200px;
+  height: 200px;
+}
+.productimg > img {
+  width: 100%;
+  /* height: 100%; */
+}

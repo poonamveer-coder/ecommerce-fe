@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Blogs from "./pages/Blogs";
+import ContactUs from "./pages/ContactUs";
+import Home from "./pages/Home";
+import Layout from "./pages/Layout";
+import { Login } from "./pages/Login";
+import NoPage from "./pages/NoPage";
+import Product from "./pages/Product";
+import ProductList from "./pages/ProductList";
+import Register from "./pages/Register";
 
-function App() {
+const RoutesDemo = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />}></Route>
+          <Route path="blogs" element={<Blogs />}></Route>
+          <Route path="contact" element={<ContactUs />}></Route>
+          <Route path="register" element={<Register />}></Route>
+          <Route path="login" element={<Login />}></Route>
+          <Route path="product" element={<Product />}></Route>
+          <Route path="productlist" element={<ProductList />}></Route>
 
-export default App;
+          <Route path="*" element={<NoPage />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default RoutesDemo;
