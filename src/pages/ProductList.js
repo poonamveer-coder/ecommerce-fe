@@ -4,8 +4,11 @@ import ProductDetails from "./ProductDetails";
 import "./product.css";
 import SearchBox from "../components/SearchBox";
 import DeleteProductButton from "../components/DeleteProductButton";
+import UpdateProduct from "../components/UpdateProduct";
+import { useNavigate } from "react-router-dom";
 
 function ProductList() {
+  const Navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const url = "http://localhost:3000/products";
 
@@ -39,8 +42,14 @@ function ProductList() {
     });
   };
 
+  const [editProduct, setEditProduct] = useState();
+  const handleOnClick = (product) => {
+    setEditProduct({ ...product });
+  };
+
   return (
     <div className="profilelist">
+      {editProduct && <UpdateProduct product={editProduct} />}
       <SearchBox
         onSubmitKeyword={(value) => {
           getData({ keyword: value });
@@ -57,6 +66,17 @@ function ProductList() {
                 getData({});
               }}
             />
+
+            <a
+              href=""
+              onClick={(event) => {
+                event.preventDefault();
+                // handleOnClick(product);
+                Navigate(`/editProduct?id=${product._id}`);
+              }}
+            >
+              Edit
+            </a>
           </div>
         );
       })}

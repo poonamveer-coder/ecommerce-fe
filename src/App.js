@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import EditProduct from "./components/EditProduct";
 import Blogs from "./pages/Blogs";
 import ContactUs from "./pages/ContactUs";
 import Home from "./pages/Home";
@@ -21,6 +22,7 @@ const RoutesDemo = () => {
           <Route path="login" element={<Login />}></Route>
           <Route path="product" element={<Product />}></Route>
           <Route path="productlist" element={<ProductList />}></Route>
+          <Route path="editproduct" element={<EditProduct />}></Route>
 
           <Route path="*" element={<NoPage />}></Route>
         </Route>

@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import UploadFile from "../components/UploadFile";
+import { BrowserRouter } from "react-router-dom";
 
-function Product() {
+function UpdateProduct({ product }) {
   const [state, setState] = useState({
-    name: "",
-    description: "",
-    price: "",
-    imageUrl: "",
+    name: product.name,
+    description: product.description,
+    price: product.price,
+    imageUrl: product.imageUrl,
+    _id: product._id,
   });
   const { name, description, price, imageUrl } = state;
   const onChange = (e) => {
@@ -15,18 +17,17 @@ function Product() {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    const result = axios.post("http://localhost:3000/products", {
+    const result = axios.put("http://localhost:3000/products", {
       name,
       description,
       price,
       imageUrl,
     });
   };
+
   return (
     <div>
-      <div>
-        <UploadFile />
-      </div>
+      <div></div>
       <form action="" onSubmit={onSubmit}>
         <div>
           <input
@@ -75,4 +76,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default UpdateProduct;
